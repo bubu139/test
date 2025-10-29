@@ -28,7 +28,7 @@ export default function TestPage() {
             setIsLoading(true);
             setError(null);
             try {
-                const response = await fetch('/api/generate-test', {
+               const response = await fetch('/api/genkit/generateTest', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({ topic }),
