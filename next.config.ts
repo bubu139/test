@@ -1,6 +1,8 @@
+// next.config.ts
 import type { NextConfig } from 'next';
 
 const nextConfig: NextConfig = {
+  // Đảm bảo không có dòng "output: 'export'," ở đây
   typescript: {
     ignoreBuildErrors: true,
   },
@@ -8,6 +10,7 @@ const nextConfig: NextConfig = {
     ignoreDuringBuilds: true,
   },
   images: {
+    // Bỏ "unoptimized: true" nếu bạn muốn Vercel tối ưu ảnh
     remotePatterns: [
       {
         protocol: 'https',
@@ -29,7 +32,7 @@ const nextConfig: NextConfig = {
       },
     ],
   },
-  // ✅ Thêm config này
+  // Fallback webpack có thể giữ lại nếu cần
   webpack: (config, { isServer }) => {
     if (!isServer) {
       config.resolve.fallback = {
@@ -42,11 +45,13 @@ const nextConfig: NextConfig = {
     }
     return config;
   },
+  // Giữ lại nếu Vercel cần
   serverComponentsExternalPackages: [
     'genkit',
     '@genkit-ai/core',
     '@genkit-ai/google-genai',
   ],
+  // Không cần basePath hay assetPrefix trừ khi bạn có lý do đặc biệt
 };
 
 export default nextConfig;
