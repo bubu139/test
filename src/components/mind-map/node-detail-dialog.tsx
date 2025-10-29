@@ -31,7 +31,7 @@ export function NodeDetailDialog({ node, isOpen, onClose }: NodeDetailDialogProp
       const fetchSummary = async () => {
         setIsSummaryLoading(true);
         try {
-          const response = await fetch('/api/summarize-topic', {
+          const response = await fetch('/api/genkit/summarizeTopic', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ topic: node.label }),
@@ -55,7 +55,7 @@ export function NodeDetailDialog({ node, isOpen, onClose }: NodeDetailDialogProp
     setIsExercisesLoading(true);
     setExercises('');
     try {
-      const response = await fetch('/api/generate-exercises', {
+    const response = await fetch('/api/genkit/generateExercises', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ topic: node.label }),
