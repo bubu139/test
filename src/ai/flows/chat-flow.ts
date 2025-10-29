@@ -5,7 +5,7 @@
 
 import {ai} from '@/ai/genkit';
 import {z} from 'zod';
-import {streamFlow} from 'genkit';
+import { streamFlow } from '@genkit-ai/core';
 
 const SYSTEM_INSTRUCTION = `Bạn là một AI gia sư toán học THPT lớp 12 Việt Nam, chuyên hướng dẫn học sinh TỰ HỌC và PHÁT TRIỂN TƯ DUY.
   
