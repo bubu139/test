@@ -172,7 +172,7 @@ export default function ChatPage() {
   
     try {
       // ✅ Gọi API route thay vì hàm trực tiếp
-      const response = await fetch('/api/geogebra', {
+     const response = await fetch('/api/genkit/generateGeogebraCommands', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ request: geogebraPrompt }),
@@ -228,7 +228,7 @@ export default function ChatPage() {
     
     try {
       const media = currentFiles.map(file => ({ url: file.content }));
-      const response = await fetch('/api/chat', {
+      const response = await fetch('/api/genkit/chat', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ message: currentInput, media }),
