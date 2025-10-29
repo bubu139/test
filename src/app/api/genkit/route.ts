@@ -1,5 +1,5 @@
 // src/app/api/genkit/[...slug]/route.ts
-import { defineNextJsHandler } from '@genkit-ai/next/plugin';
+import { defineNextJsHandler } from '@genkit-ai/next';
 // Đảm bảo import file này để đăng ký tất cả các flows của bạn với Genkit
 import '@/ai/dev';
 
